@@ -1,10 +1,10 @@
 <p id="notice"><%= notice %></p>
 
 
-<div class="row">
+<div class="row pinterest-grid">
 <% @pins.each do |pin| %>
-  <div class="col-md-3">
-    <div class="panel panel-default">
+  <div class="col-md-3 pin-item">
+    <div class="panel panel-default pin">
       <div class="panel-body">
         <%= image_tag pin.pin_image.url(:medium), class: 'image-responsive' %>
       </div>
