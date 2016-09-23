@@ -1,3 +1,6 @@
+<div>
+  <%= image_tag @user.avatar.url(:medium) %>
+</div>
 <h3><%= @user.username %></h3>
 <p><%= @user.bio %></p>
 
@@ -7,7 +10,7 @@
   <div class="col-md-3 pin-item">
     <div class="panel panel-default pin">
       <div class="panel-body">
-        <%= image_tag pin.pin_image.url(:medium), class: 'image-responsive' %>
+        <%= link_to image_tag(pin.pin_image.url(:medium)), pin %>
       </div>
       <div class="panel-footer">
         <p><strong><%= link_to pin.user.username, user_path(pin.user.username)%></strong></p>

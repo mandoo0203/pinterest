@@ -1,5 +1,5 @@
 class PinsController < ApplicationController
-  before_action :set_pin, only: [:show, :edit, :update, :destroy]
+  before_action :set_pin, only: [:show, :edit, :update, :destroy, :repost]
   before_action :authenticate_user!, except: [:index, :show]
   before_action :correct_user, only: [:edit, :update, :destroy]
 
@@ -21,6 +21,11 @@ class PinsController < ApplicationController
 
   # GET /pins/1/edit
   def edit
+  end
+
+  def repost
+    @pin.repost(current_user)
+    redirect_to pins_path
   end
 
   # POST /pins

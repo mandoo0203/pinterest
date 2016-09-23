@@ -1,5 +1,13 @@
 Rails.application.routes.draw do
-  resources :pins
+
+
+  resources :pins do
+    #resources :comments
+    member do
+      post '/repost' => 'pins#repost'
+    end
+  end
+
   devise_for :users
   root 'home#index'
   get ':username' => 'users#show', as: 'user'
