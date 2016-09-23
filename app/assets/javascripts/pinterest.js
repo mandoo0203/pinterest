@@ -1,7 +1,4 @@
 
-$(document).ready(masonryAllTheThings);
-$(document).on('page:load', masonryAllTheThings);
-
 
 function masonryAllTheThings(){
   $('.pinterest-grid').imagesloaded(function(){
@@ -11,3 +8,6 @@ function masonryAllTheThings(){
     });
   });
 }
+
+$(document).ready(masonryAllTheThings);
+$(document).on('page:load', masonryAllTheThings);
