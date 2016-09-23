@@ -10,8 +10,8 @@
       </div>
       <div class="panel-footer">
         <p><strong><%= link_to pin.user.username, user_path(pin.user.username)%></strong></p>
-        <p><strong><%= pin.user.username %></strong></p>
         <p><%= pin.description %></p>
+        <p><%= pluralize(pin.likes.count, 'Like') %></p>
         <%if pin.user == current_user %>
           <div>
             <%= link_to 'Edit', edit_pin_path(pin) %> |
@@ -21,6 +21,7 @@
         <% if user_signed_in? && pin.user !=current_user %>
           <div>
             <%= link_to 'Repost', repost_pin_path(pin), method: :POST, data: { confirm: 'want to pin?'} %>
+            <%= link_to 'Like', like_pin_path(pin), method: :post, class: 'pull-right' %>
           </div>
         <% end %>
       </div>
